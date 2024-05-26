@@ -15,16 +15,19 @@ const SearchFilter = () => {
         form.setFieldsValue(searchParams);
     }, [searchParams]);
 
-    const onFinish = (values) => {
-        const newSearchParams = { ...searchParams, ...values };
+    const onValuesChange = (changedValues, allValues) => {
+        dispatch(setSearchParams(allValues));
+    };
+
+    const onFinish = () => {
+        const values = form.getFieldsValue();
         dispatch(setIsSearching(true));
-        dispatch(setSearchParams(newSearchParams));
         fetchData(
             `${BASE_URL}/announcement/search`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ filter: newSearchParams, page: 1, size: 10 }),
+                body: JSON.stringify({ filter: values, page: 1, size: 10 }),
             },
             true,
             () => {}, // setLoading function
@@ -34,7 +37,13 @@ const SearchFilter = () => {
     };
 
     return (
-        <Form form={form} layout="inline" onFinish={onFinish} style={{ display: 'flex', justifyContent: 'center' }}>
+        <Form
+            form={form}
+            layout="inline"
+            onValuesChange={onValuesChange}
+            onFinish={onFinish}
+            style={{ display: 'flex', justifyContent: 'center' }}
+        >
             <Form.Item name="title">
                 <Input placeholder="Search by title" />
             </Form.Item>

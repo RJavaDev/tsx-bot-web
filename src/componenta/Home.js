@@ -6,7 +6,7 @@ import LoadingPage from './LoadingPage';
 import { formatDate } from './utils/DateUtil';
 import SearchFilter from './SearchFilter';
 import { fetchData, handleSearch } from './request/Api';
-import FilterIcon from './FilterIcon';
+import FilterIcon2 from './FilterIcon2';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchParams, setIsSearching } from './utils/searchSlice';
 
@@ -69,7 +69,7 @@ const Home = () => {
         <div style={{ margin: 15 }}>
             <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
                 <SearchFilter onSearch={onSearch} searchParams={searchParams} />
-                <FilterIcon onSearch={onSearch} /> {/* SearchFilter komponentining yonida FilterIcon */}
+                <FilterIcon2 onSearch={onSearch} /> {/* SearchFilter komponentining yonida FilterIcon */}
             </div>
 
             <Row gutter={[10, 10]}>
