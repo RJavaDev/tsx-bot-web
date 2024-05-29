@@ -75,7 +75,7 @@ const Home = () => {
             <Row gutter={[10, 10]}>
                 {dataToShow.length > 0 ? (
                     dataToShow.map((announcement) => (
-                        <Col key={announcement.id} xs={24} sm={12} md={8} lg={8} xl={6}>
+                        <Col key={announcement.id} xs={12} sm={12} md={12} lg={12} xl={12}>
                             <Card
                                 hoverable
                                 style={{ height: 350 }} // Set fixed height for the card

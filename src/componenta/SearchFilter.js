@@ -13,7 +13,7 @@ const SearchFilter = () => {
 
     useEffect(() => {
         form.setFieldsValue(searchParams);
-    }, [searchParams]);
+    }, [form, searchParams]);
 
     const onValuesChange = (changedValues, allValues) => {
         dispatch(setSearchParams(allValues));
@@ -27,7 +27,7 @@ const SearchFilter = () => {
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ filter: values, page: 1, size: 10 }),
+                body: JSON.stringify({ filter: values, page: 1, size: 6 }),
             },
             true,
             () => {}, // setLoading function
@@ -41,7 +41,7 @@ const SearchFilter = () => {
             form={form}
             layout="inline"
             onValuesChange={onValuesChange}
-            onFinish={onFinish}
+            onInput={onFinish}
             style={{ display: 'flex', justifyContent: 'center' }}
         >
             <Form.Item name="title">

@@ -1,4 +1,3 @@
-// FilterIcon.js
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Tooltip, Drawer, Button, Form } from 'antd';
@@ -7,7 +6,6 @@ import BASE_URL from './utils/config';
 import CategorySelect from './CategorySelect';
 import RegionSelect from './RegionSelect';
 import { setSearchParams, setIsSearching } from './utils/searchSlice';
-import { fetchData } from './request/Api';
 
 const FilterIcon = ({ onSearch }) => {
     const dispatch = useDispatch();
