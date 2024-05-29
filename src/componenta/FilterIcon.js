@@ -33,7 +33,7 @@ const FilterIcon = ({ onSearch }) => {
             categoryId: searchParams.categoryId,
             regionId: searchParams.regionId,
         });
-    }, [searchParams]);
+    }, [form, searchParams]);
 
     const onValuesChange = (changedValues, allValues) => {
         dispatch(setSearchParams(allValues));
@@ -75,7 +75,7 @@ const FilterIcon = ({ onSearch }) => {
                 <Form
                     layout="vertical"
                     form={form}
-                    // onClick={onValuesChange}
+                    onValuesChange={onValuesChange}
                     onFinish={onFinish}
                 >
                     <Form.Item name="categoryId" label="Category">

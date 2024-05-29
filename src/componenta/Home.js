@@ -6,7 +6,7 @@ import LoadingPage from './LoadingPage';
 import { formatDate } from './utils/DateUtil';
 import SearchFilter from './SearchFilter';
 import { fetchData, handleSearch } from './request/Api';
-import FilterIcon2 from './FilterIcon2';
+import FilterIcon2 from './FilterIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchParams, setIsSearching } from './utils/searchSlice';
 
