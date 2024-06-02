@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const {Meta} = Card;
 
-const Home = () => {
+const AnnouncementPageable = () => {
     useDispatch();
     const searchParams = useSelector((state) => state.search.searchParams);
     const isSearching = useSelector((state) => state.search.isSearching);
@@ -126,4 +126,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default AnnouncementPageable;

@@ -1,6 +1,5 @@
 // Home.js
 import React, {useEffect, useState} from 'react';
-import {Card} from 'antd';
 import BASE_URL from './utils/config';
 import LoadingPage from './utils/LoadingPage';
 import SearchFilter from './ditelis/SearchFilter';
@@ -8,9 +7,6 @@ import {fetchData, handleSearch} from './request/Api';
 import FilterIcon from './utils/FilterIcon';
 import {useDispatch, useSelector} from 'react-redux';
 import {setIsSearching, setSearchParams} from './utils/searchSlice';
-import AnnouncementPageable from "./ditelis/AnnouncementPageable";
-
-const {Meta} = Card;
 
 const Footer = () => {
     useDispatch();
@@ -64,7 +60,6 @@ const Footer = () => {
                 <SearchFilter onSearch={onSearch} searchParams={searchParams}/>
                 <FilterIcon onSearch={onSearch}/>
             </div>
-            <AnnouncementPageable/>
         </div>
     );
 };

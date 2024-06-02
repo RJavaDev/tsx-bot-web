@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Tooltip, Drawer, Button, Form } from 'antd';
 import { FilterOutlined } from '@ant-design/icons';
 import BASE_URL from './config';
-import CategorySelect from '../ditelis/CategorySelect';
-import RegionSelect from '../ditelis/RegionSelect';
+import { CategorySelect, RegionSelect } from '../ditelis/SelectComponents';
 import { setSearchParams, setIsSearching } from './searchSlice';
 
 const FilterIcon = ({ onSearch }) => {
@@ -18,14 +17,14 @@ const FilterIcon = ({ onSearch }) => {
 
     useEffect(() => {
         fetch(`${BASE_URL}/category/get/tree-three-level`)
-            .then(response => response.json())
-            .then(data => setCategories(data.body))
-            .catch(error => console.error('Error fetching categories:', error));
+            .then((response) => response.json())
+            .then((data) => setCategories(data.body))
+            .catch((error) => console.error('Error fetching categories:', error));
 
         fetch(`${BASE_URL}/region/get/all-tree`)
-            .then(response => response.json())
-            .then(data => setRegions(data.body))
-            .catch(error => console.error('Error fetching regions:', error));
+            .then((response) => response.json())
+            .then((data) => setRegions(data.body))
+            .catch((error) => console.error('Error fetching regions:', error));
     }, []);
 
     useEffect(() => {
@@ -61,36 +60,15 @@ const FilterIcon = ({ onSearch }) => {
     return (
         <>
             <Tooltip title="Filter">
-                <FilterOutlined
-                    style={{ fontSize: '24px', cursor: 'pointer', color: '#1890ff' }}
-                    onClick={showDrawer}
-                />
+                <FilterOutlined style={{ fontSize: '24px', cursor: 'pointer', color: '#1890ff' }} onClick={showDrawer} />
             </Tooltip>
-            <Drawer
-                title="Filter Options"
-                placement="right"
-                onClose={closeDrawer}
-                visible={visible}
-            >
-                <Form
-                    layout="vertical"
-                    form={form}
-                    // onValuesChange={onValuesChange}
-                    onFinish={onFinish}
-                >
+            <Drawer title="Filter Options" placement="right" onClose={closeDrawer} visible={visible}>
+                <Form layout="vertical" form={form} onValuesChange={onValuesChange} onFinish={onFinish}>
                     <Form.Item name="categoryId" label="Category">
-                        <CategorySelect
-                            categories={categories}
-                            value={form.getFieldValue('categoryId')}
-                            onChange={(value) => form.setFieldsValue({ categoryId: value })}
-                        />
+                        <CategorySelect categories={categories} value={form.getFieldValue('categoryId')} />
                     </Form.Item>
                     <Form.Item name="regionId" label="Region">
-                        <RegionSelect
-                            regions={regions}
-                            value={form.getFieldValue('regionId')}
-                            onChange={(value) => form.setFieldsValue({ regionId: value })}
-                        />
+                        <RegionSelect regions={regions} value={form.getFieldValue('regionId')} />
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit">
