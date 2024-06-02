@@ -5,7 +5,6 @@ import { Card, Row, Col } from 'antd';
 import BASE_URL from '../utils/config';
 import LoadingPage from '../utils/LoadingPage';
 import { formatDate } from '../utils/DateUtil';
-import Footer from "../Footer";
 
 const { Meta } = Card;
 
@@ -29,7 +28,7 @@ const AnnouncementDetail = () => {
             }
         };
 
-        fetchAnnouncementDetail();
+        fetchAnnouncementDetail().then(() => {});
     }, [id]);
 
     if (loading) {

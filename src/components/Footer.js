@@ -12,12 +12,12 @@ const Footer = () => {
     useDispatch();
     const searchParams = useSelector((state) => state.search.searchParams);
     const isSearching = useSelector((state) => state.search.isSearching);
-    const [announcements, setAnnouncements] = useState([]);
+    const [, setAnnouncements] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [total, setTotal] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(6);
-    const [searchResults, setSearchResults] = useState([]);
+    const [, setTotal] = useState(0);
+    const [currentPage, ] = useState(1);
+    const [pageSize, ] = useState(6);
+    const [, setSearchResults] = useState([]);
 
     useEffect(() => {
         if (isSearching) {

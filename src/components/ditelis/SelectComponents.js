@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
 import BASE_URL from '../utils/config';
 
