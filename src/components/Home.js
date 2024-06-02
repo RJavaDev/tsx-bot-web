@@ -6,7 +6,7 @@ import RouterWrapper from "./RouterWrapper";
 const Home = () => {
     return (
         <div>
-            <Footer/>
+
             <RouterWrapper/>
         </div>
 
