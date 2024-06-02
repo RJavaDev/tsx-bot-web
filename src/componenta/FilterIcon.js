@@ -75,7 +75,7 @@ const FilterIcon = ({ onSearch }) => {
                 <Form
                     layout="vertical"
                     form={form}
-                    onValuesChange={onValuesChange}
+                    // onValuesChange={onValuesChange}
                     onFinish={onFinish}
                 >
                     <Form.Item name="categoryId" label="Category">

@@ -30,7 +30,7 @@ const SearchFilter = () => {
                 body: JSON.stringify({ filter: values, page: 1, size: 6 }),
             },
             true,
-            () => {}, // setLoading function
+            ()=>{}, // setLoading function
             () => {}, // setSearchResults function
             () => {}  // setTotal function
         );

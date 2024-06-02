@@ -2,7 +2,7 @@
 import BASE_URL from '../utils/config';
 
 export const fetchData = (url, options = {}, isSearching, setLoading, setSearchResults, setAnnouncements, setTotal) => {
-    setLoading(true);
+    // setLoading(true);
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
