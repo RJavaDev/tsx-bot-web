@@ -2,7 +2,7 @@
 import React from 'react';
 import Footer from './Footer';
 import { Routes, Route } from 'react-router-dom';
-import AnnouncementDetail from './AnnouncementDetail';
+import AnnouncementDetail from './ditelis/AnnouncementDetail';
 
 const Home = () => {
     return (

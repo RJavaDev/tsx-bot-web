@@ -2,13 +2,13 @@
 import React, {useEffect, useState} from 'react';
 import {Card} from 'antd';
 import BASE_URL from './utils/config';
-import LoadingPage from './LoadingPage';
-import SearchFilter from './SearchFilter';
+import LoadingPage from './utils/LoadingPage';
+import SearchFilter from './ditelis/SearchFilter';
 import {fetchData, handleSearch} from './request/Api';
-import FilterIcon from './FilterIcon';
+import FilterIcon from './utils/FilterIcon';
 import {useDispatch, useSelector} from 'react-redux';
 import {setIsSearching, setSearchParams} from './utils/searchSlice';
-import AnnouncementPageable from "./AnnouncementPageable";
+import AnnouncementPageable from "./ditelis/AnnouncementPageable";
 
 const {Meta} = Card;
 

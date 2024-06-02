@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TreeSelect } from 'antd';
-import BASE_URL from './utils/config';
+import BASE_URL from '../utils/config';
 
 const { TreeNode } = TreeSelect;
 

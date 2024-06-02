@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Tooltip, Drawer, Button, Form } from 'antd';
 import { FilterOutlined } from '@ant-design/icons';
-import BASE_URL from './utils/config';
-import CategorySelect from './CategorySelect';
-import RegionSelect from './RegionSelect';
-import { setSearchParams, setIsSearching } from './utils/searchSlice';
+import BASE_URL from './config';
+import CategorySelect from '../ditelis/CategorySelect';
+import RegionSelect from '../ditelis/RegionSelect';
+import { setSearchParams, setIsSearching } from './searchSlice';
 
 const FilterIcon = ({ onSearch }) => {
     const dispatch = useDispatch();

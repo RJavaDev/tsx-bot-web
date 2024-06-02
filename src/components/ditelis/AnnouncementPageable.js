@@ -2,10 +2,10 @@
 import React, {useEffect, useState} from 'react';
 import {Card, Col, Pagination, Row} from 'antd';
 import {Link} from 'react-router-dom';
-import BASE_URL from './utils/config';
-import LoadingPage from './LoadingPage';
-import {formatDate} from './utils/DateUtil';
-import {fetchData} from './request/Api';
+import BASE_URL from '../utils/config';
+import LoadingPage from '../utils/LoadingPage';
+import {formatDate} from '../utils/DateUtil';
+import {fetchData} from '../request/Api';
 import {useDispatch, useSelector} from 'react-redux';
 
 const {Meta} = Card;

@@ -2,9 +2,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input, Button, Form } from 'antd';
-import { setSearchParams, setIsSearching } from './utils/searchSlice';
-import { fetchData } from './request/Api';
-import BASE_URL from "./utils/config";
+import { setSearchParams, setIsSearching } from '../utils/searchSlice';
+import { fetchData } from '../request/Api';
+import BASE_URL from "../utils/config";
 
 const SearchFilter = () => {
     const dispatch = useDispatch();
