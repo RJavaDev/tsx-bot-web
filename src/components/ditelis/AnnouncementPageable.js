@@ -60,69 +60,70 @@ const AnnouncementPageable = () => {
     }
 
     return (
-        <div style={{margin: 15}}>
+        <div style={{backgroundColor: '#F2F4F5'}}>
+            <div style={{padding:10}}>
 
-            <Row gutter={[10, 10]}>
-                {dataToShow.length > 0 ? (
-                    dataToShow.map((announcement) => (
-                        <Col key={announcement.id} xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <Link to={`/announcement/${announcement.id}`}>
-                                <Card
-                                    hoverable
-                                    style={{height: 350}} // Set fixed height for the card
-                                    cover={
-                                        announcement.attachUrlResponses &&
-                                        announcement.attachUrlResponses.length > 0 ? (
-                                            <img
-                                                alt="announcement"
-                                                src={announcement.attachUrlResponses[0].minFile}
-                                                style={{height: 200, width: '100%', objectFit: 'cover'}}
-                                            />
-                                        ) : (
-                                            <div
-                                                style={{
-                                                    height: 200,
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    backgroundColor: '#f0f0f0',
-                                                }}
-                                            >
-                                                No Image
-                                            </div>
-                                        )
-                                    }
-                                >
-                                    <Meta
-                                        title={announcement.title}
-                                        description={
-                                            <div>
-                                                <p style={{fontSize: 10}}>
-                                                    {announcement.priceTag.price} {announcement.priceTag.currency.code}
-                                                </p>
-                                                <p style={{fontSize: 10}}>{announcement.contactInfo.phone}</p>
-                                                <p style={{fontSize: 10}}>
-                                                    {announcement.contactInfo.address} - {formatDate(announcement.createDateTime)}
-                                                </p>
-                                            </div>
+                <Row gutter={[10, 10]}>
+                    {
+                        dataToShow.map((announcement) => (
+                            <Col key={announcement.id} xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Link to={`/announcement/${announcement.id}`}>
+                                    <Card
+                                        hoverable
+                                        style={{height: 350}} // Set fixed height for the card
+                                        cover={
+                                            announcement.attachUrlResponses &&
+                                            announcement.attachUrlResponses.length > 0 ? (
+                                                <img
+                                                    alt="announcement"
+                                                    src={announcement.attachUrlResponses[0].minFile}
+                                                    style={{height: 200, width: '100%', objectFit: 'cover'}}
+                                                />
+                                            ) : (
+                                                <div
+                                                    style={{
+                                                        height: 200,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        backgroundColor: '#f0f0f0',
+                                                    }}
+                                                >
+                                                    No Image
+                                                </div>
+                                            )
                                         }
-                                    />
-                                </Card>
-                            </Link>
-                        </Col>
-                    ))
-                ) : (
-                    <p>No announcements found</p>
-                )}
-            </Row>
-            <Pagination
-                current={currentPage}
-                pageSize={pageSize}
-                total={total}
-                onChange={handlePageChange}
-                style={{textAlign: 'center', marginTop: 20}}
-            />
+                                    >
+                                        <Meta
+                                            title={announcement.title}
+                                            description={
+                                                <div>
+                                                    <p style={{fontSize: 10}}>
+                                                        {announcement.priceTag.price} {announcement.priceTag.currency.code}
+                                                    </p>
+                                                    <p style={{fontSize: 10}}>{announcement.contactInfo.phone}</p>
+                                                    <p style={{fontSize: 10}}>
+                                                        {announcement.contactInfo.address} - {formatDate(announcement.createDateTime)}
+                                                    </p>
+                                                </div>
+                                            }
+                                        />
+                                    </Card>
+                                </Link>
+                            </Col>
+                        ))
+                    }
+                </Row>
+                <Pagination
+                    current={currentPage}
+                    pageSize={pageSize}
+                    total={total}
+                    onChange={handlePageChange}
+                    style={{textAlign: 'center', marginTop: 20}}
+                />
+            </div>
         </div>
+
     );
 };
 

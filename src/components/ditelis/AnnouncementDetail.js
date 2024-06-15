@@ -50,7 +50,7 @@ const AnnouncementDetail = () => {
                             announcement.attachUrlResponses && announcement.attachUrlResponses.length > 0 ? (
                                 <img
                                     alt="announcement"
-                                    src={announcement.attachUrlResponses[0].minFile}
+                                    src={announcement.attachUrlResponses[0].originFile}
                                     style={{ width: '100%', objectFit: 'cover' }}
                                 />
                             ) : (
