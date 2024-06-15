@@ -55,7 +55,7 @@ const Footer = () => {
     }
 
     return (
-        <div style={{margin: 15}}>
+        <div style={{marginTop: 15}}>
             <div style={{alignItems: 'center', display: 'flex', justifyContent: 'center', marginBottom: 20}}>
                 <SearchFilter onSearch={onSearch} searchParams={searchParams}/>
                 <FilterIcon onSearch={onSearch}/>

@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const FooterAndAnnouncementPage = () => {
 
     return (
-        <div style={{margin: 15}}>
+        <div >
             <Footer/>
             <AnnouncementPageable/>
         </div>
