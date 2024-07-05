@@ -5,6 +5,7 @@ import { Card, Row, Col, Carousel, Modal } from 'antd';
 import BASE_URL from '../utils/config';
 import LoadingPage from '../utils/LoadingPage';
 import { formatDate } from '../utils/DateUtil';
+import yourImage from "../../images/annoucement.png";
 
 const { Meta } = Card;
 
@@ -61,13 +62,21 @@ const AnnouncementDetail = () => {
     }
 
     return (
-        <div style={{ backgroundColor: 'rgb(242, 244, 245)' }}>
+        <div style={{
+            // backgroundColor: '#F2F4F5',
+            backgroundImage: `url(${yourImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            height: '100vh',
+            width: '100%'
+        }}>
             <div>
-                <Row gutter={[10, 10]}>
+                <Row gutter={[10, 10]} style={{margin:0, padding:'5%'}}>
                     <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                         <Card
                             hoverable
-                            style={{ width: '100%' }}
+                            style={{width: '100%', backgroundColor: '#F2F4F5'}}
                             cover={
                                 announcement.attachUrlResponses && announcement.attachUrlResponses.length > 0 ? (
                                     <div ref={carouselRef} onClick={handleCarouselClick}>
@@ -77,7 +86,7 @@ const AnnouncementDetail = () => {
                                                     <img
                                                         alt={`announcement-${index}`}
                                                         src={attachUrl.originFile}
-                                                        style={{ width: '100%', height: 250, objectFit: 'cover' }}
+                                                        style={{width: '100%', height: 250, objectFit: 'cover'}}
                                                     />
                                                 </div>
                                             ))}
@@ -122,9 +131,9 @@ const AnnouncementDetail = () => {
                 onCancel={handleCloseModal}
                 width="100%"
                 centered
-                style={{ top:0}}
+                style={{top: 0}}
                 bodyStyle={{backgroundColor: 'rgb(40,134,177)'}}
-                maskStyle={{backdropFilter: ' blur(5px)'}}
+                maskStyle={{backdropFilter: 'blur(5px)'}}
             >
                 <Carousel arrows infinite={false}>
                     {announcement.attachUrlResponses.map((attachUrl, index) => (
@@ -132,7 +141,7 @@ const AnnouncementDetail = () => {
                             <img
                                 alt={`announcement-${index}`}
                                 src={attachUrl.originFile}
-                                style={{ width: '100%', maxHeight: '70%', objectFit: 'contain' }}
+                                style={{width: '100%', maxHeight: '70%', objectFit: 'contain'}}
                             />
                         </div>
                     ))}

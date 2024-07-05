@@ -8,6 +8,8 @@ import {formatDate} from '../utils/DateUtil';
 import {fetchData} from '../request/Api';
 import {useDispatch, useSelector} from 'react-redux';
 
+import yourImage from '../../images/Home-image.png'; // import the image if it's local
+
 const {Meta} = Card;
 
 const AnnouncementPageable = () => {
@@ -28,6 +30,7 @@ const AnnouncementPageable = () => {
                 {
                     method: 'POST',
                     headers: {
+                        'Accept-Language':'uz',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
@@ -60,10 +63,24 @@ const AnnouncementPageable = () => {
     }
 
     return (
-        <div style={{backgroundColor: '#F2F4F5'}}>
-            <div style={{padding:10}}>
+        <div style={{
+            backgroundColor: '#F2F4F5',
 
-                <Row gutter={[10, 10]}>
+        }}>
+            <div>
+
+                <Row gutter={[10, 10]} style={{
+                    paddingTop:'10px',
+                    paddingBottom:'10px',
+                    overflow:"auto",
+                    height:'calc(100vh - 136px)',
+                    margin:0,
+                    backgroundImage: `url(${yourImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100%'
+                }}>
                     {
                         dataToShow.map((announcement) => (
                             <Col key={announcement.id} xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -119,7 +136,7 @@ const AnnouncementPageable = () => {
                     pageSize={pageSize}
                     total={total}
                     onChange={handlePageChange}
-                    style={{textAlign: 'center', marginTop: 20}}
+                    style={{textAlign: 'center', marginTop: 20, paddingBottom: 20}}
                 />
             </div>
         </div>

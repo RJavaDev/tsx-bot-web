@@ -8,12 +8,12 @@ const renderTreeNodes = (data) =>
   data.map((item) => {
     if (item.children && item.children.length > 0) {
       return (
-        <TreeNode value={item.id} title={item.nameUz} key={item.id} dataRef={item}>
+        <TreeNode value={item.id} title={item.name} key={item.id} dataRef={item}>
           {renderTreeNodes(item.children)}
         </TreeNode>
       );
     }
-    return <TreeNode value={item.id} title={item.nameUz} key={item.id} dataRef={item} isLeaf={false} />;
+    return <TreeNode value={item.id} title={item.name} key={item.id} dataRef={item} isLeaf={false} />;
   });
 
 const CategorySelect = ({ categories, onChange, value }) => {
@@ -42,7 +42,7 @@ const CategorySelect = ({ categories, onChange, value }) => {
       style={{ width: '100%' }}
       value={value}
       dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-      placeholder="Select a category"
+      placeholder="Barcha kategorya"
       allowClear
       loadData={onLoadData}
       onChange={onChange}
@@ -81,7 +81,7 @@ const RegionSelect = ({ regions, onChange, value }) => {
       style={{ width: '100%' }}
       value={value}
       dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-      placeholder="Select a region"
+      placeholder="Butun O'zbekiston"
       allowClear
       loadData={onLoadData}
       onChange={onChange}

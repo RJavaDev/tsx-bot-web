@@ -26,6 +26,7 @@ const Footer = () => {
                 {
                     method: 'POST',
                     headers: {
+                        'Accept-Language':'uz',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({

@@ -26,7 +26,7 @@ const SearchFilter = () => {
             `${BASE_URL}/announcement/search`,
             {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Accept-Language':'uz','Content-Type': 'application/json' },
                 body: JSON.stringify({ filter: values, page: 1, size: 6 }),
             },
             true,
@@ -45,11 +45,11 @@ const SearchFilter = () => {
             style={{ display: 'flex', justifyContent: 'center' }}
         >
             <Form.Item name="title">
-                <Input placeholder="Search by title" />
+                <Input placeholder="Nimani qidiryapsiz?" />
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">
-                    Search
+                    Qidiruv
                 </Button>
             </Form.Item>
         </Form>
