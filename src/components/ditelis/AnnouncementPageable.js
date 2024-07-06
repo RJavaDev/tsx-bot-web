@@ -63,17 +63,16 @@ const AnnouncementPageable = () => {
     }
 
     return (
-        <div style={{
-            backgroundColor: '#F2F4F5',
-
-        }}>
+        <div
+            style={{background: 'linear-gradient(0deg,  #73BDD3 50%, #ffffff 100%)'}}
+        >
             <div>
 
                 <Row gutter={[10, 10]} style={{
                     paddingTop:'10px',
                     paddingBottom:'10px',
                     overflow:"auto",
-                    height:'calc(100vh - 136px)',
+                    height:'calc(100vh - 140px)',
                     margin:0,
                     backgroundImage: `url(${yourImage})`,
                     backgroundSize: 'cover',
@@ -118,7 +117,7 @@ const AnnouncementPageable = () => {
                                                     <p style={{fontSize: 10}}>
                                                         {announcement.priceTag.price} {announcement.priceTag.currency.code}
                                                     </p>
-                                                    <p style={{fontSize: 10}}>{announcement.contactInfo.phone}</p>
+                                                    {/*<p style={{fontSize: 10}}>{announcement.contactInfo.phone}</p>*/}
                                                     <p style={{fontSize: 10}}>
                                                         {announcement.contactInfo.address} - {formatDate(announcement.createDateTime)}
                                                     </p>
@@ -136,7 +135,13 @@ const AnnouncementPageable = () => {
                     pageSize={pageSize}
                     total={total}
                     onChange={handlePageChange}
-                    style={{textAlign: 'center', marginTop: 20, paddingBottom: 20}}
+                    style={{
+                        textAlign: 'center',
+                        // marginTop: 20,
+                        paddingBottom: 19,
+                        paddingTop: 19,
+                        background: `linear-gradient(0deg,  #73BDD3 50%, #ffffff 100%)`
+                    }}
                 />
             </div>
         </div>

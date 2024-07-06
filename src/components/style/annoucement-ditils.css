@@ -1,0 +1,13 @@
+.back-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #1890ff;
+    transition: transform 0.3s;
+    z-index: 2;
+}
+
+.back-icon:hover {
+
+}
