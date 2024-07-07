@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Card, Row, Col, Carousel, Modal, Button } from 'antd';
-import { AiOutlineLeft, AiOutlinePhone } from "react-icons/ai";
+import { AiOutlineLeft } from "react-icons/ai";
 import BASE_URL from '../utils/config';
 import LoadingPage from '../utils/LoadingPage';
 import { formatDate } from '../utils/DateUtil';
 import yourImage from "../../images/annoucement.png";
 import '../style/annoucement-ditils.css';
+import {LinearGradientButtons, LinearGradientButtonsNoneClick}from "../buttons/LinerGredentButton";
 
 const { Meta } = Card;
 
@@ -142,20 +143,22 @@ const AnnouncementDetail = () => {
                         <div style={{
                             display: 'flex',
                             alignItems: 'center',
-                            marginTop: '5px',
-                            padding: '10px',
-                            backgroundColor: '#ffffff',
-                            borderRadius: '5px',
-                            boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)'
+                            justifyContent: 'center',
+                            padding: '17px',
                         }}>
-                            Ofshi buttonga o'rsh kerak
-
-                            <AiOutlinePhone size={20} style={{ marginRight: '10px' }} />
+                            {/*<AiOutlinePhone size={25} rotate={30} style={{ marginRight: '10px', rotate:-30 }} />*/}
                             {showPhoneNumber ? (
-                                <Button><a
-                                    href={`tel:+${announcement.contactInfo.phone}`}>+{announcement.contactInfo.phone}</a></Button>
+                                    <a href={`tel:+${announcement.contactInfo.phone}`}>
+                                        <LinearGradientButtonsNoneClick uis = {`+${announcement.contactInfo.phone}`}/>
+                                    </a>
+
+                                // <Button>
+                                //     <a href={`tel:+${announcement.contactInfo.phone}`}>
+                                //         +{announcement.contactInfo.phone}
+                                //     </a>
+                                // </Button>
                             ) : (
-                                <Button onClick={handleShowPhoneNumber}>Telefon raqamini ko'rish</Button>
+                                <LinearGradientButtons onClick={handleShowPhoneNumber} uis = {'Telefon raqamini ko\'rish'}/>
                             )}
                         </div>
                     </Col>

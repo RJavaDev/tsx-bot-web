@@ -59,24 +59,24 @@ const FilterIcon = ({ onSearch }) => {
 
     return (
         <>
-            <Tooltip title="Filter">
-                <FilterOutlined style={{ fontSize: '24px', cursor: 'pointer', color: '#1890ff' }} onClick={showDrawer} />
+            <Tooltip style={{background:'aqua'}} title="Filter">
+                <FilterOutlined style={{ fontSize: '24px', cursor: 'pointer', color: '#2892dd' }} onClick={showDrawer} />
             </Tooltip>
-            <Drawer title="Filter o'rnatish" placement="right" onClose={closeDrawer} visible={visible}>
-                <Form layout="vertical" form={form} onValuesChange={onValuesChange} onFinish={onFinish}>
-                    <Form.Item name="categoryId" label="Kategorya">
-                        <CategorySelect categories={categories} value={form.getFieldValue('categoryId')} />
-                    </Form.Item>
-                    <Form.Item name="regionId" label="Joylashuv">
-                        <RegionSelect regions={regions} value={form.getFieldValue('regionId')} />
-                    </Form.Item>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">
-                            Filterni qo'shish
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Drawer>
+                <Drawer title="Filter o'rnatish" placement="right" onClose={closeDrawer} visible={visible}>
+                    <Form layout="vertical" form={form} onValuesChange={onValuesChange} onFinish={onFinish}>
+                        <Form.Item name="categoryId" label="Kategorya">
+                            <CategorySelect categories={categories} value={form.getFieldValue('categoryId')} />
+                        </Form.Item>
+                        <Form.Item name="regionId" label="Joylashuv">
+                            <RegionSelect regions={regions} value={form.getFieldValue('regionId')} />
+                        </Form.Item>
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit">
+                                Filterni qo'shish
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </Drawer>
         </>
     );
 };
