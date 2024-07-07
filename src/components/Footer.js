@@ -26,6 +26,7 @@ const Footer = () => {
                 {
                     method: 'POST',
                     headers: {
+                        'Accept-Language':'uz',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
@@ -56,8 +57,13 @@ const Footer = () => {
 
     return (
         <div >
-            <div style={{marginTop: 15, marginBottom: 15}}>
-                <div style={{alignItems: 'center', display: 'flex', justifyContent: 'center', marginBottom: 20}}>
+            <div style={{
+                padding: 19,
+                paddingBottom: 19,
+                background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(115,189,211,1) 100%)',
+
+            }}>
+                <div style={{alignItems: 'center', display: 'flex', justifyContent: 'center'}}>
                     <SearchFilter onSearch={onSearch} searchParams={searchParams}/>
                     <FilterIcon onSearch={onSearch}/>
                 </div>

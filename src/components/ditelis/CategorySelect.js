@@ -8,12 +8,12 @@ const CategorySelect = ({ categories, value, onChange }) => {
         data.map((item) => {
             if (item.children) {
                 return (
-                    <TreeNode title={item.nameEn} key={item.id} value={item.id}>
+                    <TreeNode title={item.name} key={item.id} value={item.id}>
                         {renderTreeNodes(item.children)}
                     </TreeNode>
                 );
             }
-            return <TreeNode title={item.nameEn} key={item.id} value={item.id} />;
+            return <TreeNode title={item.name} key={item.id} value={item.id} />;
         });
 
     return (
