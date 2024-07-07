@@ -58,8 +58,8 @@ const Footer = () => {
     return (
         <div >
             <div style={{
-                padding: 19,
-                paddingBottom: 19,
+                paddingTop: '19px',
+                paddingBottom: '19px',
                 background: 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(115,189,211,1) 100%)',
 
             }}>
