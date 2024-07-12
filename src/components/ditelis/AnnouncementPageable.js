@@ -94,14 +94,14 @@ const AnnouncementPageable = () => {
                                 <Link to={`/announcement/${announcement.id}`}>
                                     <Card
                                         hoverable
-                                        style={{height: 350}} // Set fixed height for the card
+                                        style={{height: 280}} // Set fixed height for the card
                                         cover={
                                             announcement.attachUrlResponses &&
                                             announcement.attachUrlResponses ? (
                                                 <img
                                                     alt="announcement"
                                                     src={announcement.attachUrlResponses.minFile}
-                                                    style={{height: 200, width: '100%', objectFit: 'cover'}}
+                                                    style={{height: '120px', objectFit: 'cover'}}
                                                 />
                                             ) : (
                                                 <div
@@ -121,7 +121,7 @@ const AnnouncementPageable = () => {
                                         <Meta
                                             title={announcement.title}
                                             description={
-                                                <div>
+                                                <div style={{color:"black"}}>
                                                     <p style={{fontSize: 10, font:'Roboto'}}>
                                                         {announcement.price} {announcement.currencyCode}
                                                     </p>

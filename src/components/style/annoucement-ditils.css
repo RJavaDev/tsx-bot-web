@@ -8,6 +8,8 @@
     z-index: 2;
 }
 
-.back-icon:hover {
-
+:where(.ant-modal-content) {
+    padding: 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }

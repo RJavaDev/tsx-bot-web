@@ -16,12 +16,20 @@ const FilterIcon = ({ onSearch }) => {
     const [form] = Form.useForm();
 
     useEffect(() => {
-        fetch(`${BASE_URL}/category/get/tree-three-level`)
+        fetch(`${BASE_URL}/category/get/tree-three-level`, {
+            headers: {
+                'Accept-Language': 'uz',
+            },
+        })
             .then((response) => response.json())
             .then((data) => setCategories(data.body))
             .catch((error) => console.error('Xatolik kategorya tanlashda:', error));
 
-        fetch(`${BASE_URL}/region/get/all-tree`)
+        fetch(`${BASE_URL}/region/get/all-tree`, {
+            headers: {
+                'Accept-Language': 'uz',
+            },
+        })
             .then((response) => response.json())
             .then((data) => setRegions(data.body))
             .catch((error) => console.error('Xatolik joy tanlashda:', error));

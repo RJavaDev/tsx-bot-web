@@ -91,11 +91,11 @@ const AnnouncementDetail = () => {
                 </Button>
             </div>
             <div>
-                <Row gutter={[10, 10]} style={{ margin: 0, padding: '5%', height: '100vh', overflow:"auto" }}>
-                    <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+                <Row gutter={[10, 10]} style={{ margin: 0, height: '100vh', overflow:"auto" }}>
+                    <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{padding:0}}>
                         <Card
                             hoverable
-                            style={{ width: '100%', backgroundColor: '#F2F4F5' }}
+                            style={{ width: '100%' }}
                             cover={
                                 announcement.attachUrlResponses && announcement.attachUrlResponses.length > 0 ? (
                                     <div ref={carouselRef} onClick={handleCarouselClick}>
@@ -105,7 +105,7 @@ const AnnouncementDetail = () => {
                                                     <img
                                                         alt={`announcement-${index}`}
                                                         src={attachUrl.originFile}
-                                                        style={{ width: '100%', height: "auto", objectFit: 'cover' }}
+                                                        style={{ width: '100%', height: 250, borderRadius:0, objectFit: 'cover' }}
                                                     />
                                                 </div>
                                             ))}
@@ -129,7 +129,7 @@ const AnnouncementDetail = () => {
                             <Meta
                                 title={announcement.title}
                                 description={
-                                    <div>
+                                    <div style={{color:"black"}}>
                                         <p>{announcement.description}</p>
                                         <p>
                                             {announcement.priceTag.price} {announcement.priceTag.currency.code}
@@ -146,17 +146,8 @@ const AnnouncementDetail = () => {
                             justifyContent: 'center',
                             padding: '17px',
                         }}>
-                            {/*<AiOutlinePhone size={25} rotate={30} style={{ marginRight: '10px', rotate:-30 }} />*/}
                             {showPhoneNumber ? (
-                                    <a href={`tel:+${announcement.contactInfo.phone}`}>
-                                        <LinearGradientButtonsNoneClick uis = {`+${announcement.contactInfo.phone}`}/>
-                                    </a>
-
-                                // <Button>
-                                //     <a href={`tel:+${announcement.contactInfo.phone}`}>
-                                //         +{announcement.contactInfo.phone}
-                                //     </a>
-                                // </Button>
+                                <LinearGradientButtonsNoneClick uis = {`+${announcement.contactInfo.phone}`}/>
                             ) : (
                                 <LinearGradientButtons onClick={handleShowPhoneNumber} uis = {'Telefon raqamini ko\'rish'}/>
                             )}
@@ -170,17 +161,18 @@ const AnnouncementDetail = () => {
                 onCancel={handleCloseModal}
                 width="100%"
                 centered
-                style={{ top: 0 }}
-                bodyStyle={{ backgroundColor: 'rgb(40,134,177)' }}
+                style={{ top: 0, backgroundColor:'#ffffff00', padding:0 }}
                 maskStyle={{ backdropFilter: 'blur(5px)' }}
+                modalStyle={{padding:'0'}}
+                modalContentStyle={{padding:'0'}}
             >
-                <Carousel arrows infinite={false}>
+                <Carousel style={{backgroundColor:'#ffffff00'}} arrows infinite={false}>
                     {announcement.attachUrlResponses.map((attachUrl, index) => (
                         <div key={index}>
                             <img
                                 alt={`announcement-${index}`}
                                 src={attachUrl.originFile}
-                                style={{ width: '100%', maxHeight: '70%', objectFit: 'contain' }}
+                                style={{ width: '100%',borderRadius: 8, height: 250,padding:0, objectFit: 'cover' }}
                             />
                         </div>
                     ))}
