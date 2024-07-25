@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Card, Row, Col, Carousel, Modal, Button } from 'antd';
 import { AiOutlineLeft } from "react-icons/ai";
@@ -21,7 +21,7 @@ const AnnouncementDetail = () => {
     const [categoryAnnouncements, setCategoryAnnouncements] = useState([]);
     const carouselRef = useRef(null);
 
-    const fetchAnnouncementDetail = async () => {
+    const fetchAnnouncementDetail = useCallback(async () => {
         try {
             const response = await fetch(`${BASE_URL}/announcement/get/${id}`);
             const result = await response.json();
@@ -33,9 +33,9 @@ const AnnouncementDetail = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
 
-    const fetchCategoryAnnouncements = async (categoryId) => {
+    const fetchCategoryAnnouncements = useCallback(async (categoryId) => {
         try {
             const response = await fetch(`${BASE_URL}/announcement/get/by-category/${categoryId}`);
             const result = await response.json();
@@ -45,17 +45,17 @@ const AnnouncementDetail = () => {
         } catch (error) {
             console.error('Error fetching category announcements:', error);
         }
-    };
+    }, [id]);
 
     useEffect(() => {
         fetchAnnouncementDetail();
-    }, [id]);
+    }, [fetchAnnouncementDetail]);
 
     useEffect(() => {
         if (announcement && announcement.categoryId) {
             fetchCategoryAnnouncements(announcement.categoryId);
         }
-    }, [announcement]);
+    }, [announcement, fetchCategoryAnnouncements]);
 
     const handleCarouselClick = (event) => {
         if (carouselRef.current) {
@@ -92,7 +92,6 @@ const AnnouncementDetail = () => {
         return <p>No announcement found</p>;
     }
 
-    // Function to group items in pairs
     const groupCategoryAnnouncements = (announcements) => {
         const groups = [];
         for (let i = 0; i < announcements.length; i += 2) {
