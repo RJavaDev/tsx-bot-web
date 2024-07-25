@@ -37,7 +37,7 @@ const AnnouncementDetail = () => {
 
     const fetchCategoryAnnouncements = async (categoryId) => {
         try {
-            const response = await fetch(`${BASE_URL}/announcement/get/list/${categoryId}`);
+            const response = await fetch(`${BASE_URL}/announcement/get/by-category/${categoryId}`);
             const result = await response.json();
             if (result.code === 200) {
                 setCategoryAnnouncements(result.body.rows.filter(item => item.id !== parseInt(id)));
@@ -180,7 +180,7 @@ const AnnouncementDetail = () => {
                             padding: '17px',
                         }}>
                             {showPhoneNumber ? (
-                                <LinearGradientButtonsNoneClick uis={`+${announcement.contactInfo.phone}`} />
+                                <LinearGradientButtonsNoneClick uis={`${announcement.contactInfo.phone}`} />
                             ) : (
                                 <LinearGradientButtons onClick={handleShowPhoneNumber} uis={'Telefon raqamini ko\'rish'} />
                             )}
