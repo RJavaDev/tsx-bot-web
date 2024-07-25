@@ -47,7 +47,15 @@ const AnnouncementPageable = () => {
             );
         } else {
             const url = `${BASE_URL}/announcement/home?page=${currentPage}&size=${pageSize}`;
-            fetchData(url, {}, isSearching, setLoading, setSearchResults, setAnnouncements, setTotal);
+            fetchData(
+                url,
+                {
+                    headers: {
+                        'Accept-Language':'uz',
+                        'Content-Type': 'application/json',
+                    }
+                },
+                isSearching, setLoading, setSearchResults, setAnnouncements, setTotal);
         }
     }, [currentPage, pageSize, isSearching, searchParams]);
 
@@ -86,14 +94,14 @@ const AnnouncementPageable = () => {
                                 <Link to={`/announcement/${announcement.id}`}>
                                     <Card
                                         hoverable
-                                        style={{height: 350}} // Set fixed height for the card
+                                        style={{height: 280}} // Set fixed height for the card
                                         cover={
                                             announcement.attachUrlResponses &&
-                                            announcement.attachUrlResponses.length > 0 ? (
+                                            announcement.attachUrlResponses ? (
                                                 <img
                                                     alt="announcement"
-                                                    src={announcement.attachUrlResponses[0].minFile}
-                                                    style={{height: 200, width: '100%', objectFit: 'cover'}}
+                                                    src={announcement.attachUrlResponses.minFile}
+                                                    style={{height: '120px', objectFit: 'cover'}}
                                                 />
                                             ) : (
                                                 <div
@@ -113,13 +121,13 @@ const AnnouncementPageable = () => {
                                         <Meta
                                             title={announcement.title}
                                             description={
-                                                <div>
-                                                    <p style={{fontSize: 10}}>
-                                                        {announcement.priceTag.price} {announcement.priceTag.currency.code}
+                                                <div style={{color:"black"}}>
+                                                    <p style={{fontSize: 10, font:'Roboto'}}>
+                                                        {announcement.price} {announcement.currencyCode}
                                                     </p>
                                                     {/*<p style={{fontSize: 10}}>{announcement.contactInfo.phone}</p>*/}
                                                     <p style={{fontSize: 10}}>
-                                                        {announcement.contactInfo.address} - {formatDate(announcement.createDateTime)}
+                                                        {announcement.address} - {formatDate(announcement.createDateTime)}
                                                     </p>
                                                 </div>
                                             }
