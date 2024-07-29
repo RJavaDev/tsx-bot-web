@@ -16,10 +16,10 @@
     margin-bottom: 0 !important;
 }
 
-:where(.css-dev-only-do-not-override-1r287do).ant-card .ant-card-meta-title {
+:where( .ant-card-meta-title) {
     font-size: 12px !important;
 }
 
-:where(.css-dev-only-do-not-override-1r287do).ant-card {
+:where(.ant-card) {
     line-height:1.2 !important;
 }
