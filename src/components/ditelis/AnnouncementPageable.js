@@ -7,7 +7,7 @@ import LoadingPage from '../utils/LoadingPage';
 import {formatDate} from '../utils/DateUtil';
 import {fetchData} from '../request/Api';
 import {useDispatch, useSelector} from 'react-redux';
-
+import '../style/announcement-page.css'
 import yourImage from '../../images/Home-image.png'; // import the image if it's local
 
 const {Meta} = Card;
@@ -77,8 +77,8 @@ const AnnouncementPageable = () => {
             <div>
 
                 <Row gutter={[10, 10]} style={{
-                    paddingTop:'10px',
-                    paddingBottom:'10px',
+                    paddingTop:'5px',
+                    paddingBottom:'5px',
                     overflow:"auto",
                     height:'calc(100vh - 140px)',
                     margin:0,
@@ -86,22 +86,23 @@ const AnnouncementPageable = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    width: '100%'
+                    width: '100%',
+                    rowGap:0
                 }}>
                     {
                         dataToShow.map((announcement) => (
-                            <Col key={announcement.id} xs={12} sm={12} md={12} lg={12} xl={12}>
+                            <Col style={{padding:2}} key={announcement.id} xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <Link to={`/announcement/${announcement.id}`}>
                                     <Card
                                         hoverable
-                                        style={{height: 280}} // Set fixed height for the card
+                                        style={{height: 240}} // Set fixed height for the card
                                         cover={
                                             announcement.attachUrlResponses &&
                                             announcement.attachUrlResponses ? (
                                                 <img
                                                     alt="announcement"
                                                     src={announcement.attachUrlResponses.minFile}
-                                                    style={{height: '120px', objectFit: 'cover'}}
+                                                    style={{height: '145px', objectFit: 'cover'}}
                                                 />
                                             ) : (
                                                 <div
@@ -122,12 +123,11 @@ const AnnouncementPageable = () => {
                                             title={announcement.title}
                                             description={
                                                 <div style={{color:"black"}}>
-                                                    <p style={{fontSize: 10, font:'Roboto'}}>
-                                                        {announcement.price} {announcement.currencyCode}
+                                                    <p style={{fontSize: 12, font:'Roboto', margin:0}}>
+                                                        <b>{announcement.price} {announcement.currencyCode}</b>
                                                     </p>
-                                                    {/*<p style={{fontSize: 10}}>{announcement.contactInfo.phone}</p>*/}
-                                                    <p style={{fontSize: 10}}>
-                                                        {announcement.address} - {formatDate(announcement.createDateTime)}
+                                                    <p style={{fontSize: 10, margin:0}}>
+                                                        {announcement.address}   {formatDate(announcement.createDateTime)}
                                                     </p>
                                                 </div>
                                             }

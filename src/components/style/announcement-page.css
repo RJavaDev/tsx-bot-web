@@ -1,0 +1,17 @@
+:where(.ant-card-body) {
+    padding: 13px !important;
+}
+
+:where(.ant-card){
+    line-height:normal;
+}
+
+:where(.last-child) {
+    margin-bottom: 0px;
+    line-height:normal;
+    margin: 0;
+}
+
+.css-dev-only-do-not-override-1r287do .ant-card .ant-card-meta-detail > div:not(:last-child) {
+    margin-bottom: 0px;
+}
