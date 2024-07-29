@@ -123,12 +123,13 @@ const AnnouncementPageable = () => {
                                             title={announcement.title}
                                             description={
                                                 <div style={{color:"black"}}>
-                                                    <p style={{fontSize: 12, font:'Roboto', margin:0}}>
+                                                    <p style={{fontSize: 12, font:'Roboto', margin:0, paddingTop:5}}>
                                                         <b>{announcement.price} {announcement.currencyCode}</b>
                                                     </p>
                                                     <p style={{fontSize: 10, margin:0}}>
-                                                        {announcement.address}   {formatDate(announcement.createDateTime)}
+                                                        {announcement.address}
                                                     </p>
+                                                    <span style={{fontSize:10}}>{formatDate(announcement.createDateTime)}</span>
                                                 </div>
                                             }
                                         />

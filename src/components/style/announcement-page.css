@@ -1,5 +1,5 @@
 :where(.ant-card-body) {
-    padding: 13px !important;
+    padding: 13px 10px 0 10px !important;
 }
 
 :where(.ant-card){
@@ -14,4 +14,12 @@
 
 .css-dev-only-do-not-override-1r287do .ant-card .ant-card-meta-detail > div:not(:last-child) {
     margin-bottom: 0px;
+}
+
+:where(.css-dev-only-do-not-override-1r287do).ant-card .ant-card-meta-title {
+    font-size: 12px;
+}
+
+:where(.css-dev-only-do-not-override-1r287do).ant-card {
+    line-height:1.2;
 }
