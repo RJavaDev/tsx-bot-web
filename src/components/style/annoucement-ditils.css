@@ -13,3 +13,10 @@
     background-color: transparent !important;
     box-shadow: none !important;
 }
+
+.ann-card-container{
+    display: flex;
+    justify-content: center; /* markazda joylashtirish uchun */
+    gap: 16px; /* kartalar orasidagi masofa */
+    display: inline-block;
+}

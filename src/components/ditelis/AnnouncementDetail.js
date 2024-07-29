@@ -176,33 +176,51 @@ const AnnouncementDetail = () => {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            padding: '17px',
+                            paddingTop: '17px',
                         }}>
                             {showPhoneNumber ? (
                                 <LinearGradientButtonsNoneClick uis={`${announcement.contactInfo.phone}`} />
                             ) : (
-                                <LinearGradientButtons onClick={handleShowPhoneNumber} uis={'Telefon raqamini ko\'rish'} />
+                                <LinearGradientButtons onClick={handleShowPhoneNumber}
+                                                       uis={'Telefon raqamini ko\'rish'} />
                             )}
                         </div>
                     </Col>
                 </Row>
-                <div style={{ padding: '10px'}}>
+                <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
                     <h3>Shunga o'xshash elonlar</h3>
                     <Carousel arrows infinite={false}>
                         {groupCategoryAnnouncements(categoryAnnouncements).map((group, groupIndex) => (
-                            <div key={groupIndex} style={{ display: 'inline-block'}}>
+                            <div className="ann-card-container" key={groupIndex}
+                                 style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
                                 {group.map((catAnnouncement, index) => (
                                     <Card
-                                        key={index}
                                         hoverable
-                                        style={{ width: '45%', display:'inline-block', margin:'5px'}}
-                                        cover={<img alt={`announcement-${index}`}
-                                                    src={catAnnouncement.attachUrlResponses.originFile}
-                                                    style={{ height: 150, objectFit: 'cover' }} />}
+                                        style={{ height:240, width: '46%', margin: '1%', display:"inline-block"}} // Adjusted width and margin for better alignment
+                                        cover={
+                                            <img
+                                                alt="announcement"
+                                                src={catAnnouncement.attachUrlResponses.originFile}
+                                                style={{ height: '145px', objectFit: 'cover' }}
+                                            />
+                                        }
                                         onClick={() => navigate(`/announcement/${catAnnouncement.id}`)}
                                     >
-                                        <Meta title={catAnnouncement.title}
-                                              description={`${catAnnouncement.price} ${catAnnouncement.currencyCode}`} />
+                                        <Meta style={{textAlign:"left"}}
+                                            title={catAnnouncement.title}
+                                            description={
+                                                <div style={{ color: "black" }}>
+                                                    <p style={{ fontSize: 12, font: 'Roboto', margin: 0, paddingTop: 5 }}>
+                                                        <b>{catAnnouncement.price} {catAnnouncement.currencyCode}</b>
+                                                    </p>
+                                                    <p style={{ fontSize: 10, margin: 0 }}>
+                                                        {catAnnouncement.address}
+                                                    </p>
+                                                    <span
+                                                        style={{ fontSize: 10 }}>{formatDate(catAnnouncement.createDateTime)}</span>
+                                                </div>
+                                            }
+                                        />
                                     </Card>
                                 ))}
                             </div>
