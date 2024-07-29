@@ -8,18 +8,18 @@
 
 :where(.last-child) {
     margin-bottom: 0px;
-    line-height:normal;
-    margin: 0;
+    line-height:normal !important;
+    margin: 0 !important;
 }
 
 .css-dev-only-do-not-override-1r287do .ant-card .ant-card-meta-detail > div:not(:last-child) {
-    margin-bottom: 0px;
+    margin-bottom: 0 !important;
 }
 
 :where(.css-dev-only-do-not-override-1r287do).ant-card .ant-card-meta-title {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
 :where(.css-dev-only-do-not-override-1r287do).ant-card {
-    line-height:1.2;
+    line-height:1.2 !important;
 }
