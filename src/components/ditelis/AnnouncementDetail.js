@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Card, Row, Col, Carousel, Modal, Button } from 'antd';
+import {Card, Row, Col, Carousel, Modal, Button, message} from 'antd';
 import { AiOutlineLeft } from "react-icons/ai";
 import BASE_URL from '../utils/config';
 import LoadingPage from '../utils/LoadingPage';
 import { formatDate } from '../utils/DateUtil';
 import yourImage from "../../images/annoucement.png";
 import '../style/annoucement-ditils.css';
-import { LinearGradientButtons, LinearGradientButtonsNoneClick } from "../buttons/LinerGredentButton";
 
 const { Meta } = Card;
 
@@ -17,7 +16,6 @@ const AnnouncementDetail = () => {
     const [announcement, setAnnouncement] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [showPhoneNumber, setShowPhoneNumber] = useState(false);
     const [categoryAnnouncements, setCategoryAnnouncements] = useState([]);
     const carouselRef = useRef(null);
 
@@ -80,8 +78,12 @@ const AnnouncementDetail = () => {
         navigate(-1);
     };
 
-    const handleShowPhoneNumber = () => {
-        setShowPhoneNumber(true);
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text).then(() => {
+            message.success('Text copied to clipboard');
+        }).catch(err => {
+            message.error('Failed to copy text');
+        });
     };
 
     if (loading) {
@@ -153,38 +155,58 @@ const AnnouncementDetail = () => {
                                             backgroundColor: '#f0f0f0',
                                         }}
                                     >
-                                        No Image
+                                        <h2 style={{ color: "#bbb" }}>No Image Available</h2>
                                     </div>
                                 )
                             }
                         >
                             <Meta
-                                title={announcement.title}
+                                title={
+                                    <h1 style={{ margin: 0, fontSize: "20px", fontWeight: "bold", color: "#333" }}>
+                                        {announcement.title}
+                                    </h1>
+                                }
                                 description={
-                                    <div style={{ color: "black" }}>
-                                        <p>{announcement.description}</p>
-                                        <p>
-                                            {announcement.priceTag.price} {announcement.priceTag.currency.code}
+                                    <div style={{color: "black", marginTop: "10px"}}>
+                                        <p style={{
+                                            marginBottom: "10px",
+                                            fontSize: "14px",
+                                            color: "#666",
+                                        }}>
+                                            {announcement.description}
                                         </p>
-                                        <p>{announcement.contactInfo.address}</p>
-                                        <p>{formatDate(announcement.createDateTime)}</p>
+                                        <h2 style={{color: "#555", fontSize: "16px", margin: "10px 0"}}>
+                                            {announcement.priceTag.price} {announcement.priceTag.currency.code}
+                                        </h2>
+                                        <p style={{marginBottom: "10px", fontSize: "14px", color: "#666"}}>
+                                            {announcement.contactInfo.address}
+                                        </p>
+
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                alignItems: "center",
+                                                paddingBottom: "10px"
+                                            }}
+                                        >
+                                            <p style={{
+                                                marginBottom: "10px",
+                                                fontSize: "12px",
+                                                color: "#888"
+                                            }}>
+                                                {formatDate(announcement.createDateTime)}
+                                            </p>
+                                            <div style={{textAlign: "right"}}>
+                                                <p style={{margin: "0", fontSize: "14px", color: "#555"}} onClick={() => copyToClipboard(announcement.contactInfo.phone)}>
+                                                    {announcement.contactInfo.phone}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 }
                             />
                         </Card>
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            paddingTop: '17px',
-                        }}>
-                            {showPhoneNumber ? (
-                                <LinearGradientButtonsNoneClick uis={`${announcement.contactInfo.phone}`} />
-                            ) : (
-                                <LinearGradientButtons onClick={handleShowPhoneNumber}
-                                                       uis={'Telefon raqamini ko\'rish'} />
-                            )}
-                        </div>
                     </Col>
                 </Row>
                 <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
