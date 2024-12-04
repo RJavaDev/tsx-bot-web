@@ -218,7 +218,7 @@ const AnnouncementDetail = () => {
                                 {group.map((catAnnouncement, index) => (
                                     <Card
                                         hoverable
-                                        style={{ height:240, width: '46%', margin: '1%', display:"inline-block"}} // Adjusted width and margin for better alignment
+                                        style={{ height:240, margin: '1%', display:"inline-block"}} // Adjusted width and margin for better alignment
                                         cover={
                                             <img
                                                 alt="announcement"
@@ -231,11 +231,11 @@ const AnnouncementDetail = () => {
                                         <Meta style={{textAlign:"left"}}
                                             title={catAnnouncement.title}
                                             description={
-                                                <div style={{ color: "black" }}>
-                                                    <p style={{ fontSize: 12, font: 'Roboto', margin: 0, paddingTop: 5 }}>
+                                                <div style={{color: "black"}}>
+                                                    <p style={{fontSize: 12, font: 'Roboto', margin: 0, paddingTop: 5}}>
                                                         <b>{catAnnouncement.price} {catAnnouncement.currencyCode}</b>
                                                     </p>
-                                                    <p style={{ fontSize: 10, margin: 0 }}>
+                                                    <p style={{fontSize: 10, margin: 0}}>
                                                         {catAnnouncement.address}
                                                     </p>
                                                     <span
@@ -256,18 +256,18 @@ const AnnouncementDetail = () => {
                 onCancel={handleCloseModal}
                 width="100%"
                 centered
-                style={{ top: 0, backgroundColor: '#ffffff00', padding: 0 }}
-                maskStyle={{ backdropFilter: 'blur(5px)' }}
-                modalStyle={{ padding: '0' }}
-                modalContentStyle={{ padding: '0' }}
+                style={{top: 0, backgroundColor: '#ffffff00', padding: 0}}
+                maskStyle={{backdropFilter: 'blur(5px)'}}
+                modalStyle={{padding: '0'}}
+                modalContentStyle={{padding: '0'}}
             >
-                <Carousel style={{ backgroundColor: '#ffffff00' }} arrows infinite={false}>
+                <Carousel style={{backgroundColor: '#ffffff00'}} arrows infinite={false}>
                     {announcement.attachUrlResponses.map((attachUrl, index) => (
                         <div key={index}>
                             <img
                                 alt={`announcement-${index}`}
                                 src={attachUrl.originFile}
-                                style={{ width: '100%', borderRadius: 8, height: 250, padding: 0, objectFit: 'cover' }}
+                                style={{width: '100%', borderRadius: 8, height: 250, padding: 0, objectFit: 'cover'}}
                             />
                         </div>
                     ))}

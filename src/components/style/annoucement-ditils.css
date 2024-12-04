@@ -14,9 +14,34 @@
     box-shadow: none !important;
 }
 
-.ann-card-container{
+.ann-card-container {
     display: flex;
-    justify-content: center; /* markazda joylashtirish uchun */
-    gap: 16px; /* kartalar orasidagi masofa */
-    display: inline-block;
+    flex-wrap: wrap; /* Kartalarni yangi qatorda joylashtirish */
+    justify-content: center;
+    gap: 10px; /* Kartalar orasidagi masofa */
+}
+
+/* 343px - 391px oralig‘ida kartalar kengligini moslashtirish */
+@media (max-width: 391px) {
+    .ann-card-container .ant-card {
+        width: 40%; /* Kenglikni 48% qilib belgilang */
+        max-width: 10px; /* Maksimal kenglik */
+        margin: 5px 1%; /* Yon tomonlardagi bo'sh joy */
+    }
+}
+
+@media (max-width: 600px) {
+    .ann-card-container .ant-card {
+        width: 41%; /* Kenglikni 48% qilib belgilang */
+        max-width: 180px; /* Maksimal kenglik */
+        margin: 5px 1%; /* Yon tomonlardagi bo'sh joy */
+    }
+}
+
+/* 343px dan pastda kartalar bir qatorga sig‘masa, to‘liq kenglikda ko‘rsatish */
+@media (max-width: 343px) {
+    .ann-card-container .ant-card {
+        width: 100%; /* Bir qatorga sig‘magan holda to‘liq kenglikda chiqadi */
+        margin: 5px 0; /* Yon bo‘sh joy yo‘q qilindi */
+    }
 }
